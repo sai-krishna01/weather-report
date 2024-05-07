@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <input type="text" id="search">
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevents the form from submitting normally
+            
+            let input = document.getElementById('search').value;
+            let searchUrl = "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=" + input;
+            
+            window.open(searchUrl, "_self"); // Opens the search URL in the current tab
+        });
+    </script>
+    <!-- weather api ("https://api.openweathermap.org/data/2.5/weather?q=karimnagar&appid=db4419c39a0faf706dc6c98a21a6170f&units=metric") -->
+    <!-- const apiKey = 'db4419c39a0faf706dc6c98a21a6170f';
+        const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}&units=metric`; -->
+</body>
+</html>
