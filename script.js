@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function fetchWeatherData(cityName) {
         const apiKey = 'db4419c39a0faf706dc6c98a21a6170f'; // Replace with your actual API key
-        const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}&units=metric`;
+        const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`;
         const response = await fetch(apiUrl);
         const data = await response.json();
         return data;
@@ -35,6 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const windSpeed = `${weatherData.wind.speed} m/s`;
             const sunrise = new Date(weatherData.sys.sunrise * 1000).toLocaleTimeString();
             const sunset = new Date(weatherData.sys.sunset * 1000).toLocaleTimeString();
+            const rain = weatherData.rain ? `${weatherData.rain['1h']} mm` : 'No rain';
+            const rainPercent = weatherData.rain ? `${weatherData.rain['3h']}%` : 'N/A'; // Assuming 3h rain percentage
 
             const weatherHtml = `
                 <div class="card">
@@ -47,6 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         <p class="card-text">Wind Speed: ${windSpeed}</p>
                         <p class="card-text">Sunrise: ${sunrise}</p>
                         <p class="card-text">Sunset: ${sunset}</p>
+                        <p class="card-text">Rainfall (last hour): ${rain}</p>
+                        <p class="card-text">Rain Percentage: ${rainPercent}</p>
                     </div>
                 </div>
             `;
