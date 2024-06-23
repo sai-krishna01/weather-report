@@ -1,45 +1,42 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
+    text-align: center;
     margin: 0;
-    padding: 20px;
+    padding: 0;
 }
 
 .container {
     max-width: 600px;
-    margin: 0 auto;
+    margin: 50px auto;
+    background: #fff;
     padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
 h1 {
-    text-align: center;
+    margin-bottom: 20px;
 }
 
 form {
-    display: flex;
-    justify-content: center;
     margin-bottom: 20px;
 }
 
 input[type="text"] {
     padding: 10px;
-    font-size: 16px;
+    width: calc(100% - 100px);
     border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 70%;
+    border-radius: 4px;
     margin-right: 10px;
 }
 
 button {
-    padding: 10px;
-    font-size: 16px;
+    padding: 10px 20px;
     border: none;
-    border-radius: 5px;
-    background-color: #007BFF;
-    color: white;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
     cursor: pointer;
 }
 
@@ -48,28 +45,48 @@ button:hover {
 }
 
 .card {
-    background-color: #007BFF;
-    color: white;
+    background-color: #007bff;
+    color: #fff;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.card-body {
-    text-align: center;
-}
-
-.card-title {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.card-text {
-    font-size: 18px;
-    margin: 5px 0;
+    border-radius: 8px;
 }
 
 .weather-icon {
     width: 50px;
-    height: 50px;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    border-radius: 8px;
+}
+
+.popup-content {
+    text-align: center;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+a {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
 }
