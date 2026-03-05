@@ -7,21 +7,41 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Weather App</h1>
-        <form id="searchForm">
-            <input type="text" id="cityName" placeholder="Enter city name">
-            <button type="submit">Search</button>
-        </form>
-        <div id="weatherInfo"></div>
-    </div>
-    <div id="popup" class="popup">
+    <main class="app-shell">
+        <header class="app-header">
+            <h1>Weather App</h1>
+            <p class="subtitle">Real-time conditions, rain outlook, and five day forecast.</p>
+        </header>
+
+        <section class="search-panel">
+            <form id="searchForm" class="search-form" novalidate>
+                <label class="sr-only" for="cityName">City name</label>
+                <input type="text" id="cityName" placeholder="Search city (e.g., Tokyo)" autocomplete="off">
+                <button type="submit">Search</button>
+            </form>
+
+            <div class="action-row">
+                <button type="button" id="currentLocationBtn" class="ghost-btn">Use current location</button>
+                <button type="button" id="unitToggleBtn" class="ghost-btn" aria-pressed="false">Switch to °F</button>
+            </div>
+
+            <div id="recentSearches" class="recent-searches" aria-live="polite"></div>
+        </section>
+
+        <section id="statusMessage" class="status-message" aria-live="assertive"></section>
+
+        <section id="weatherInfo" class="weather-grid" aria-live="polite"></section>
+    </main>
+
+    <div id="popup" class="popup" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
         <div class="popup-content">
-            <span class="close-btn">&times;</span>
-            <p>Follow me on Instagram for more updates!</p>
-            <a href="https://www.instagram.com/simply_saikrishna/" target="_blank">Follow</a>
+            <button type="button" class="close-btn" aria-label="Close">&times;</button>
+            <h2 id="popupTitle">Thanks for trying Weather App 🌤️</h2>
+            <p>Tip: save time by using the “current location” button and quick city chips.</p>
+            <a href="https://www.instagram.com/simply_saikrishna/" target="_blank" rel="noopener noreferrer">Follow for updates</a>
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
