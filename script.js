@@ -382,6 +382,43 @@ document.addEventListener('DOMContentLoaded', () => {
         return 'Unable to access your current location. Please search by city.';
     }
 
+    function getLocationDate(unixSeconds, timezoneOffset) {
+        return new Date((unixSeconds + timezoneOffset) * 1000);
+    }
+
+    function formatLocationTime(unixSeconds, timezoneOffset) {
+        return getLocationDate(unixSeconds, timezoneOffset).toLocaleTimeString(undefined, {
+            hour: 'numeric',
+            minute: '2-digit',
+            timeZone: 'UTC'
+        });
+    }
+
+    function formatLocationDateTime(unixSeconds, timezoneOffset) {
+        return getLocationDate(unixSeconds, timezoneOffset).toLocaleString(undefined, {
+            weekday: 'short',
+            hour: 'numeric',
+            minute: '2-digit',
+            timeZone: 'UTC'
+        });
+    }
+
+    function getGeolocationErrorMessage(error) {
+        if (error.code === 1) {
+            return 'Location permission was denied. Allow location access or search by city.';
+        }
+
+        if (error.code === 2) {
+            return 'Your current location is unavailable. Try again or search by city.';
+        }
+
+        if (error.code === 3) {
+            return 'Current location lookup timed out. Try again or search by city.';
+        }
+
+        return 'Unable to access your current location. Please search by city.';
+    }
+
     function setStatus(message, type = '') {
         statusMessage.textContent = message;
         statusMessage.className = `status-message ${type}`.trim();
