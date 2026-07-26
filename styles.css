@@ -247,3 +247,10 @@ button:hover {
         width: 100%;
     }
 }
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+    transform: none;
+    filter: none;
+}
