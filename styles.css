@@ -167,6 +167,21 @@ button:hover {
     height: 56px;
 }
 
+.weather-emoji {
+    width: 56px;
+    height: 56px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.35rem;
+}
+
+.weather-emoji.small {
+    width: auto;
+    margin: 0.25rem 0;
+    font-size: 2rem;
+}
+
 .metrics {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -246,4 +261,11 @@ button:hover {
     input[type="text"] {
         width: 100%;
     }
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+    transform: none;
+    filter: none;
 }
