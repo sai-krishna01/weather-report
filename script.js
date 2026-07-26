@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const unitToggleBtn = document.getElementById('unitToggleBtn');
     const currentLocationBtn = document.getElementById('currentLocationBtn');
 
-    const apiKey = 'db4419c39a0faf706dc6c98a21a6170f';
+    const apiKey = 'c5baa769dadb4913b4735621262607';
     const storageKey = 'weather-app-recent-cities';
 
     let isMetric = true;
